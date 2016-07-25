@@ -9,7 +9,7 @@
          content must come *after* these tags -->
     <title>Ristorante Con Fusion: Menu</title>
         <!-- Bootstrap -->
-      <link rel="stylesheet" href="styles/main.ba6e3187c39d3c354d79.css">
+      <link rel="stylesheet" href="styles/main-e099023802.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,32 +22,35 @@
 <body>
 
     <div class="container">
-        <div class="row row-content" ng-controller="menuController as menuCtrl">
+        <div class="row row-content" ng-controller="MenuController">
             <div class="col-xs-12">
-                <ul class="media-list">
-                    <li class="media" ng-repeat="dish in menuCtrl.dishes">
-                        <div class="media-left media-middle">
-                            <a href="#">
-                                <img ng-src="{{dish.image}}" alt="Uthappizza" class="media-object img-thumbnail">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h2 class="media-heading">{{dish.name}}
-                                <span class="label label-danger label-xs">{{dish.label}}</span>
-                                <span class="badge">{{dish.price | currency}}</span>
-                            </h2>
-                            <p>{{dish.description}}</p>
-                            <p>Comment: {{dish.comment}}</p>
-                            <p>Type your comment:
-                                <input type="text" ng-model="dish.comment">
-                            </p>
-                        </div>
-                    </li>
-                </ul>
+              <button class="btn btn-xs btn-primary pull-right" ng-click="toggleDetails()">
+                {{showDetails ? 'Hide Details':'Show Details'}}
+              </button>    
+              <ul class="media-list">
+                  <li class="media" ng-repeat="dish in dishes">
+                      <div class="media-left media-middle">
+                          <a href="#">
+                              <img ng-src="{{dish.image}}" alt="Uthappizza" class="media-object img-thumbnail">
+                          </a>
+                      </div>
+                      <div class="media-body">
+                          <h2 class="media-heading">{{dish.name}}
+                              <span class="label label-danger label-xs">{{dish.label}}</span>
+                              <span class="badge">{{dish.price | currency}}</span>
+                          </h2>
+                          <p ng-show="showDetails">{{dish.description}}</p>
+                          <p>Comment: {{dish.comment}}</p>
+                          <p>Type your comment:
+                              <input type="text" ng-model="dish.comment">
+                          </p>
+                      </div>
+                  </li>
+              </ul>
             </div>
         </div>
     </div>
-    <script src="scripts/main.45a3abfb08a60563d858.js"></script>
+    <script src="scripts/main-cbb1d60654.js"></script>      
 </body>
 
 </html>
